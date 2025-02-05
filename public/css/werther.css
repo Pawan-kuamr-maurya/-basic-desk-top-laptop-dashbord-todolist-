@@ -1,0 +1,19 @@
+
+  
+  #wetherdata {
+   
+
+  
+    transform: translate(-50%, 30%); /* Center using transform */
+    text-align: center; /* Center text */
+   
+    font-size: 2.5em; /* Adjust size as needed */
+    color: #222; /* Change color if needed */
+    
+    padding: 10px; /* Optional: Add padding */
+   
+  
+    font-family: "Handlee", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }

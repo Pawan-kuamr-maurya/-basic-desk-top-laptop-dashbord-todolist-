@@ -1,0 +1,34 @@
+
+
+.timercontainer {
+    
+   
+    border-radius: 8px;
+ 
+    text-align: center;
+}
+
+.messagetime {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+#startButton,#stoptimer,#endButton{
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+#messagetime{
+    font-family: 'Courier New', Courier, monospace;
+}
+#startButton:hover{
+    color: #89d4ff;
+    background-color: rgb(73, 7, 180);
+}

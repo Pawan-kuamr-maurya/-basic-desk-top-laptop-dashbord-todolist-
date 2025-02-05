@@ -1,0 +1,37 @@
+
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+} */
+
+.gamecontainer {
+    margin-right: 10px auto;
+}
+
+.puzzle {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    margin-bottom: 20px;
+}
+
+.piece {
+    width: 100px; /* Each piece should have a width of 100px */
+    height: 100px; /* Each piece should have a height of 100px */
+    background-size: 300px 300px; /* Background image should be equal to the combined size of pieces */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.piece.empty {
+    background-color: transparent; /* Make the empty piece transparent */
+    cursor: default;
+}

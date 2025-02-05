@@ -1,0 +1,39 @@
+
+.note{
+    padding-top: 15px;
+    width: 350px;
+    height: 300px;
+   
+  }
+  .notesdiv {
+    position: relative; /* To position the notecontent relative to noteimagediv */
+  }
+  
+  .noteimagediv {
+    padding-top: 10px;
+    position: relative; /* Relative position for layering */
+    display: inline-block; /* Maintain size based on the image */
+  }
+  
+  .note {
+    display: block; /* Ensures the image takes full width */
+  }
+  
+  .notecontent {
+    width: 320px;
+    position: absolute; /* Position it absolutely within noteimagediv */
+    top: 15%; /* Adjust top position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, 30%); /* Center using transform */
+    text-align: center; /* Center text */
+   
+    font-size: 1.2em; /* Adjust size as needed */
+    color: #222; /* Change color if needed */
+    
+    padding: 10px; /* Optional: Add padding */
+   
+  
+    font-family: "Handlee", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }

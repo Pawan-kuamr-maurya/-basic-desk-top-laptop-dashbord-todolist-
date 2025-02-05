@@ -1,0 +1,316 @@
+:root {
+    --clock-size: 250px; /* Base size for clock */
+    --circle-size-1: 160px; /* Circle 1 size */
+    --circle-size-2: 120px; /* Circle 2 size */
+    --circle-size-3: 80px; /* Circle 3 size */
+    --digital-clock-font-size: 2em; /* Digital clock font size */
+    --clock-number:1.5em;
+  }
+  
+  /* Apply the variables to the clock and other elements */
+  
+  .clock {
+    position: relative;
+    width: var(--clock-size);
+    height: var(--clock-size);
+    background: #2f363e;
+    border-radius: 50%;
+    box-shadow: 10px 50px 70px rgb(0 0 0 / 39%),
+     inset 5px 5px 10px rgb(0 0 0 / 80%),
+      inset 5px 5px 20px rgb(255 255 255 / 0%), 
+      inset -5px -5px 15px rgb(0 0 0 / 82%);
+  
+  
+        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .clock::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #2f363e;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    z-index: 100000;
+  }
+  
+  .clock span {
+    position: absolute;
+    inset: 10px; 
+    /* to set disdatnce from outer wall */
+    color: #fff;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+    /* 360 / 12 = 30deg */
+  }
+  
+  .clock span b {
+    font-size:  var(--clock-number);
+    opacity: 0.25;
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+  }
+  
+  .circle {
+    position: absolute;
+    width: var(--circle-size-1);
+    height: var(--circle-size-1);
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+  }
+  
+  .circle i {
+    position: absolute;
+    width: 6px;
+    height: 50%;
+    background: var(--clr);
+    opacity: 0.45;
+    transform-origin: bottom;
+    transform: scaleY(0.8);
+  }
+  
+  .circle:nth-child(1) i {
+    width: 2px;
+  }
+  
+  .circle:nth-child(2) i {
+    width: 6px;
+  }
+  
+  .circle2 {
+    width: var(--circle-size-2);
+    height: var(--circle-size-2);
+    z-index: 9;
+  }
+  
+  .circle3 {
+    width: var(--circle-size-3);
+    height: var(--circle-size-3);
+    z-index: 8;
+  }
+  
+  .circle::before {
+    content: '';
+    position: absolute;
+    top: -8.5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr), 0 0 40px var(--clr);
+  }
+  
+  /* digital clock style */
+  
+  #time {
+    margin-bottom: -80px;
+    display: flex;
+    transform: translateY(15px);
+    padding: 10px 10px;
+    font-size: var(--digital-clock-font-size);
+    font-weight: 600;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
+        inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+    margin-left: 15px;
+    width: var(--clock-size)
+  }
+  
+  #time div {
+    position: relative;
+    width: 60px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr);
+  }
+  
+  #time div:nth-child(1)::after,
+  #time div:nth-child(2)::after {
+    content: ':';
+    position: absolute;
+    right: -4px;
+  }
+  
+  #time div:last-child {
+    font-size: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0e0d0d;
+  }
+  
+  #time div:nth-child(2)::after {
+    animation: animate 1s steps(1) infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+  }
+  
+  /* Make Responsive */
+  
+  @media screen and (max-width: 768px) {
+    :root {
+        --clock-size: 300px;
+        --circle-size-1: 200px;
+        --circle-size-2: 150px;
+        --circle-size-3: 100px;
+        --digital-clock-font-size: 1.5em;
+    }
+  
+    .clock {
+        width: var(--clock-size);
+        height: var(--clock-size);
+    }
+  
+    .clock span {
+        inset: 15px;
+    }
+  
+    .clock span b {
+        font-size: 1.5em;
+    }
+  
+    .circle {
+        width: var(--circle-size-1);
+        height: var(--circle-size-1);
+    }
+  
+    .circle i {
+        height: 40%;
+    }
+  
+    .circle:nth-child(1) i {
+        width: 1px;
+    }
+  
+    .circle:nth-child(2) i {
+        width: 3px;
+    }
+  
+    .circle2 {
+        width: var(--circle-size-2);
+        height: var(--circle-size-2);
+    }
+  
+    .circle3 {
+        width: var(--circle-size-3);
+        height: var(--circle-size-3);
+    }
+  
+    .circle::before {
+        top: -6.5px;
+        width: 10px;
+        height: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    :root {
+        --clock-size: 200px;
+        --circle-size-1: 120px;
+        --circle-size-2: 80px;
+        --circle-size-3: 60px;
+        --digital-clock-font-size: 1em;
+    }
+  
+    .container {
+        border-radius: 0;
+    }
+  
+    .clock {
+        width: var(--clock-size);
+        height: var(--clock-size);
+    }
+  
+    .clock span {
+        inset: 10px;
+    }
+  
+    .clock span b {
+        font-size: 1em;
+    }
+  
+    .circle {
+        width: var(--circle-size-1);
+        height: var(--circle-size-1);
+    }
+  
+    .circle i {
+        height: 30%;
+    }
+  
+    .circle:nth-child(1) i {
+        width: 1px;
+    }
+  
+    .circle:nth-child(2) i {
+        width: 2px;
+    }
+  
+    .circle2 {
+        width: var(--circle-size-2);
+        height: var(--circle-size-2);
+    }
+  
+    .circle3 {
+        width: var(--circle-size-3);
+        height: var(--circle-size-3);
+    }
+  
+    .circle::before {
+        top: -4.5px;
+        width: 8px;
+        height: 8px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    #time {
+        font-size: 1.5em;
+        padding: 5px 5px;
+        margin-left: 10px;
+    }
+  
+    #time div {
+        width: 50px;
+    }
+  
+    #time div:last-child {
+        font-size: 0.4em;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    #time {
+        font-size: 1em;
+        padding: 2px 2px;
+        margin-left: 5px;
+    }
+  
+    #time div {
+        width: 40px;
+    }
+  
+    #time div:last-child {
+        font-size: 0.3em;
+    }
+  }
+  
+  

@@ -1,0 +1,125 @@
+<%- include("header") -%>
+
+
+<div class="grid-container">
+  <div class="grid-item item1">
+    <div class ="containerclock">
+
+    <!--Analog Clock-->
+    <div class ="clock">
+    
+      <div class="circle" id="sc" style="--clr:#04fc43;"><i></i></div>
+      <div class="circle circle2" id="mn" style="--clr:#fee800;"><i></i></div>
+      <div class="circle circle3" id="hr" style="--clr:#ff2972;"><i></i></div>
+    
+      <span style = "--i:1;"><b>1</b></span>
+      <span style = "--i:2;"><b>2</b></span>
+      <span style = "--i:3;"><b>3</b></span>
+      <span style = "--i:4;"><b>4</b></span>
+      <span style = "--i:5;"><b>5</b></span>
+      <span style = "--i:6;"><b>6</b></span>
+      <span style = "--i:7;"><b>7</b></span>
+      <span style = "--i:8;"><b>8</b></span>
+      <span style = "--i:9;"><b>9</b></span>
+      <span style = "--i:10;"><b>10</b></span>
+      <span style = "--i:11;"><b>11</b></span>
+      <span style = "--i:12;"><b>12</b></span>
+    
+    </div>
+    
+    <!--digital clock-->
+    <div  id = "time">
+    
+      <div id = "hours" style="--clr:#ff2972;">00</div>
+      <div id = "minutes" style="--clr:#fee800;">00</div>
+      <div id = "seconds" style="--clr:#0408fc;">00</div>
+      <div id = "ampm">AM</div>
+    
+    </div>
+    
+      </div>
+  
+  </div>
+  <div class="grid-item item2">
+
+    <div class="box" id="heading">
+      <h1> <%=listTitle %> </h1>
+    </div>
+  
+    <div class="box">
+      <% for (let i=0; i<newListItems.length; i++) { %>
+        <form action="/delete" method="post" >
+        <div class="item" >
+          <input type="hidden" name="type" value="<%=listTitle %>" />
+  
+          <input type="checkbox" id="<%=i %>" style="display: none;" onchange="this.form.submit()" name="check" value="<%= newListItems[i]._id %>" >
+           <p><%= newListItems[i].name  %></p>
+           <label for="<%=i %>" style=" margin-right:24px; color: red;"> <i class="fa-solid fa-trash"></i></label>
+         
+          </div>
+        </form> 
+        <%} %>
+  
+       
+  
+  
+        <form class="item" action="/" method="post">
+          <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+       
+          <button type="submit" class="todolistbutton" name="topic" value="<%=listTitle %>" >+</button>
+        </form>
+    </div>
+  </div>
+  
+  <div class="grid-item item3">
+    
+    <div class="timercontainer">
+  
+      <span id="messagetime" class="message">Stay focused! You will get reminders to take breaks.</span>
+      <img src="/image/bell.gif"  style="display: none;" id="bellimg" height="50" alt="" srcset="">
+      <!-- <i class="fa-solid fa-bottle-water" style="display: none;" id="bellimg"></i> -->
+      <button id="startButton">Start Reminders</button>
+     
+      <button type="button" id="stoptimer" style="display: none;">stop</button>
+      <audio id="alarmSound"  src="/music/B.mp3"></audio>
+    </div>
+  </div>
+  <div class="grid-item item4">
+<div class="notesdiv">
+  <div class="noteimagediv"><img class="note" src="/image/note.png" alt="" srcset=""></div>
+  <div class="notecontent">      </div>
+</div>
+  </div>
+  <div class="grid-item item5"> 
+    <div class="gamecontainer">
+       
+        <div id="puzzle" class="puzzle"></div>
+        <!-- <button id="shufflegame">Shuffle</button> -->
+    </div>
+    
+  </div>
+  <div class="grid-item item6">
+    <img class="cloudimg" src="/image/cloud.png" alt="" srcset="">
+    <div id="wetherdata">
+
+
+    </div>
+   </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include("footer") -%>
